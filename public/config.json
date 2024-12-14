@@ -1,0 +1,354 @@
+{
+     "currency": "USD",
+    "tasks": [
+        {
+            "id": 1,
+            "question": "What is the capital city of France?",
+            "reward": {
+                "value": 500
+            },
+            "options": [
+                {
+                    "id": 1,
+                    "text": "Berlin",
+                    "isCorrect": false
+                },
+                {
+                    "id": 2,
+                    "text": "Paris",
+                    "isCorrect": true
+                },
+                {
+                    "id": 3,
+                    "text": "Madrid",
+                    "isCorrect": false
+                },
+                {
+                    "id": 4,
+                    "text": "Rome",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "question": "Which planet is known as the Red Planet?",
+            "reward": {
+                "value": 1000
+            },
+            "options": [
+                {
+                    "id": 5,
+                    "text": "Venus",
+                    "isCorrect": false
+                },
+                {
+                    "id": 6,
+                    "text": "Mars",
+                    "isCorrect": true
+                },
+                {
+                    "id": 7,
+                    "text": "Jupiter",
+                    "isCorrect": false
+                },
+                {
+                    "id": 8,
+                    "text": "Saturn",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "question": "Who wrote 'Romeo and Juliet'?",
+            "reward": {
+                "value": 2000
+            },
+            "options": [
+                {
+                    "id": 9,
+                    "text": "William Shakespeare",
+                    "isCorrect": true
+                },
+                {
+                    "id": 10,
+                    "text": "Mark Twain",
+                    "isCorrect": false
+                },
+                {
+                    "id": 11,
+                    "text": "Charles Dickens",
+                    "isCorrect": false
+                },
+                {
+                    "id": 12,
+                    "text": "Jane Austen",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "question": "Which element has the chemical symbol 'O'?",
+            "reward": {
+                "value": 5000
+            },
+            "options": [
+                {
+                    "id": 13,
+                    "text": "Oxygen",
+                    "isCorrect": true
+                },
+                {
+                    "id": 14,
+                    "text": "Gold",
+                    "isCorrect": false
+                },
+                {
+                    "id": 15,
+                    "text": "Osmium",
+                    "isCorrect": false
+                },
+                {
+                    "id": 16,
+                    "text": "Obsidian",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "question": "What is the largest ocean on Earth?",
+            "reward": {
+                "value": 10000
+            },
+            "options": [
+                {
+                    "id": 17,
+                    "text": "Atlantic Ocean",
+                    "isCorrect": false
+                },
+                {
+                    "id": 18,
+                    "text": "Indian Ocean",
+                    "isCorrect": false
+                },
+                {
+                    "id": 19,
+                    "text": "Pacific Ocean",
+                    "isCorrect": true
+                },
+                {
+                    "id": 20,
+                    "text": "Arctic Ocean",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 6,
+            "question": "Which year did the Titanic sink?",
+            "reward": {
+                "value": 25000
+            },
+            "options": [
+                {
+                    "id": 21,
+                    "text": "1912",
+                    "isCorrect": true
+                },
+                {
+                    "id": 22,
+                    "text": "1905",
+                    "isCorrect": false
+                },
+                {
+                    "id": 23,
+                    "text": "1918",
+                    "isCorrect": false
+                },
+                {
+                    "id": 24,
+                    "text": "1920",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 7,
+            "question": "Who painted the Mona Lisa?",
+            "reward": {
+                "value": 50000
+            },
+            "options": [
+                {
+                    "id": 25,
+                    "text": "Vincent van Gogh",
+                    "isCorrect": false
+                },
+                {
+                    "id": 26,
+                    "text": "Leonardo da Vinci",
+                    "isCorrect": true
+                },
+                {
+                    "id": 27,
+                    "text": "Pablo Picasso",
+                    "isCorrect": false
+                },
+                {
+                    "id": 28,
+                    "text": "Claude Monet",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 8,
+            "question": "What is the speed of light?",
+            "reward": {
+                "value": 100000
+            },
+            "options": [
+                {
+                    "id": 29,
+                    "text": "300,000 km/s",
+                    "isCorrect": true
+                },
+                {
+                    "id": 30,
+                    "text": "150,000 km/s",
+                    "isCorrect": false
+                },
+                {
+                    "id": 31,
+                    "text": "500,000 km/s",
+                    "isCorrect": false
+                },
+                {
+                    "id": 32,
+                    "text": "100,000 km/s",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 9,
+            "question": "Who discovered penicillin?",
+            "reward": {
+                "value": 250000
+            },
+            "options": [
+                {
+                    "id": 33,
+                    "text": "Marie Curie",
+                    "isCorrect": false
+                },
+                {
+                    "id": 34,
+                    "text": "Alexander Fleming",
+                    "isCorrect": true
+                },
+                {
+                    "id": 35,
+                    "text": "Isaac Newton",
+                    "isCorrect": false
+                },
+                {
+                    "id": 36,
+                    "text": "Charles Darwin",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 10,
+            "question": "What is the smallest country in the world?",
+            "reward": {
+                "value": 500000
+            },
+            "options": [
+                {
+                    "id": 37,
+                    "text": "Monaco",
+                    "isCorrect": false
+                },
+                {
+                    "id": 38,
+                    "text": "Vatican City",
+                    "isCorrect": true
+                },
+                {
+                    "id": 39,
+                    "text": "San Marino",
+                    "isCorrect": false
+                },
+                {
+                    "id": 40,
+                    "text": "Liechtenstein",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 11,
+            "question": "What is the hardest natural substance on Earth?",
+            "reward": {
+                "value": 750000
+            },
+            "options": [
+                {
+                    "id": 41,
+                    "text": "Gold",
+                    "isCorrect": false
+                },
+                {
+                    "id": 42,
+                    "text": "Iron",
+                    "isCorrect": false
+                },
+                {
+                    "id": 43,
+                    "text": "Diamond",
+                    "isCorrect": true
+                },
+                {
+                    "id": 44,
+                    "text": "Graphite",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 12,
+            "question": "Who was the first person to walk on the moon?",
+            "reward": {
+                "value": 1000000
+            },
+            "options": [
+                {
+                    "id": 45,
+                    "text": "Buzz Aldrin",
+                    "isCorrect": false
+                },
+                {
+                    "id": 46,
+                    "text": "Neil Armstrong",
+                    "isCorrect": true
+                },
+                {
+                    "id": 47,
+                    "text": "Yuri Gagarin",
+                    "isCorrect": false
+                },
+                {
+                    "id": 48,
+                    "text": "John Glenn",
+                    "isCorrect": false
+                }
+            ]
+        }
+    ]
+    
+}
