@@ -18,6 +18,9 @@ const eslintConfig = [
         project: 'tsconfig.json'
       }
     }
+  },
+  {
+      ignores: [".lintstagedrc.js"]
   }
 ];
 
