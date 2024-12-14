@@ -3,58 +3,58 @@
     "tasks": [
         {
             "id": 1,
-            "question": "What is the capital city of France?",
+            "question": "How old your elder brother was 10 years before you was born, mate?",
             "reward": {
                 "value": 500
             },
             "options": [
                 {
                     "id": 1,
-                    "text": "Berlin",
-                    "isCorrect": false
-                },
-                {
-                    "id": 2,
-                    "text": "Paris",
+                    "text": "10 years",
                     "isCorrect": true
                 },
                 {
+                    "id": 2,
+                    "text": "20 years",
+                    "isCorrect": false
+                },
+                {
                     "id": 3,
-                    "text": "Madrid",
+                    "text": "30 years",
                     "isCorrect": false
                 },
                 {
                     "id": 4,
-                    "text": "Rome",
+                    "text": "40 years",
                     "isCorrect": false
                 }
             ]
         },
         {
             "id": 2,
-            "question": "Which planet is known as the Red Planet?",
+            "question": "Which two of these countries are located in South America?",
             "reward": {
                 "value": 1000
             },
             "options": [
                 {
                     "id": 5,
-                    "text": "Venus",
-                    "isCorrect": false
-                },
-                {
-                    "id": 6,
-                    "text": "Mars",
+                    "text": "Argentina",
                     "isCorrect": true
                 },
                 {
-                    "id": 7,
-                    "text": "Jupiter",
+                    "id": 6,
+                    "text": "Mexico",
                     "isCorrect": false
                 },
                 {
+                    "id": 7,
+                    "text": "Colombia",
+                    "isCorrect": true
+                },
+                {
                     "id": 8,
-                    "text": "Saturn",
+                    "text": "Spain",
                     "isCorrect": false
                 }
             ]

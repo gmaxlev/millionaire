@@ -1,0 +1,72 @@
+:root {
+  --color-black-5: #F5F5F7;
+  --color-black-40: #D0D0D8;
+  --color-black-100: #1C1C21;
+  --color-green-5: #E6FAEA;
+  --color-green-100: #47D867;
+  --color-orange-5: #FFF3EB;
+  --color-orange-80: #FFAC70;
+  --color-orange-100: #FF8B37;
+  --color-orange-120: #E87928;
+  --color-red-5: #FDEEED;
+  --color-red-100: #EC6259;
+  --color-white-100: #FFFFFF;
+  --shape-button: polygon( 6.019% 6.663%,6.019% 6.663%,6.203% 5.457%,6.406% 4.36%,6.625% 3.374%,6.86% 2.506%,7.107% 1.759%,7.366% 1.137%,7.635% 0.646%,7.913% 0.29%,8.197% 0.073%,8.486% 0%,91.514% 0%,91.514% 0%,91.803% 0.073%,92.087% 0.29%,92.365% 0.646%,92.634% 1.137%,92.893% 1.759%,93.14% 2.506%,93.375% 3.374%,93.594% 4.36%,93.797% 5.457%,93.981% 6.663%,100% 50%,93.981% 93.337%,93.981% 93.337%,93.797% 94.543%,93.594% 95.64%,93.375% 96.626%,93.14% 97.494%,92.893% 98.241%,92.634% 98.863%,92.365% 99.354%,92.087% 99.71%,91.803% 99.927%,91.514% 100%,8.486% 100%,8.486% 100%,8.197% 99.927%,7.913% 99.71%,7.635% 99.354%,7.366% 98.863%,7.107% 98.241%,6.86% 97.494%,6.625% 96.626%,6.406% 95.64%,6.203% 94.543%,6.019% 93.337%,0% 50%,6.019% 6.663% );
+  --container-padding: 1rem;
+}
+
+@include screen(lg) {
+  :root {
+    --container-padding: 1.25rem;
+  }
+}
+
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: var(--font-inter);
+  color: var(--color-black-100);
+  background-color: var(--color-black-5);
+}
+
+
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.container {
+  max-width: calc(1280px + 2 * var(--container-padding));
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+  width: 100%;
+
+  @include screen(lg) {
+    padding: 0 var(--container-padding);
+  }
+}
+
+button {
+  all: unset;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  all: unset;
+  display: block;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}

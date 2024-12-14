@@ -1,5 +1,6 @@
 import { MillionaireOption as MillionaireOptionType } from '@/millionaire/types';
 import MillionaireOption from '../MillionaireOption/MillionaireOption';
+import styles from './MillionaireOptions.module.scss';
 
 interface Props {
   options: Array<MillionaireOptionType & { isSelected: boolean } >;
@@ -9,7 +10,7 @@ interface Props {
 
 export default function MillionaireOptions({ options, onAnswer, disabled }: Props) {
   return (
-    <div>
+    <div className={styles.options}>
       {options.map((option, index) => (
         <MillionaireOption
           key={option.id}

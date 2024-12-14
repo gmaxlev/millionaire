@@ -1,8 +1,8 @@
 import { describe, it, expect } from 'vitest';
-import selectCurrentTask from '../../../../src/millionaire/store/selectors/selectCurrentTask';
+import selectTasksWithStatus from '../../../../src/millionaire/store/selectors/selectTasksWithStatus';
 import { MillionaireState } from '../../../../src/millionaire/store/types';
 
-describe('selectCurrentTask', () => {
+describe('selectTasksWithStatus', () => {
   it('should return null if tasks are not initialized', () => {
     const state: MillionaireState = {
       currentTaskIndex: 0,
@@ -11,13 +11,13 @@ describe('selectCurrentTask', () => {
       isStart: false,
     };
 
-    const result = selectCurrentTask(state);
+    const result = selectTasksWithStatus(state);
     expect(result).toBeNull();
   });
 
-  it('should return the current task with status', () => {
+  it('should return tasks with status', () => {
     const state: MillionaireState = {
-      currentTaskIndex: 1,
+      currentTaskIndex: 0,
       currency: 'USD',
       tasks: [
         {
@@ -25,7 +25,7 @@ describe('selectCurrentTask', () => {
           question: 'Question 1',
           options: [
             {
-              id: 1, text: 'Option 1', isCorrect: true, isSelected: false,
+              id: 1, text: 'Option 1', isCorrect: true, isSelected: true,
             },
             {
               id: 2, text: 'Option 2', isCorrect: false, isSelected: false,
@@ -50,16 +50,28 @@ describe('selectCurrentTask', () => {
       isStart: true,
     };
 
-    const result = selectCurrentTask(state);
-    expect(result).toEqual({
-      task: state.tasks[1],
-      status: {
-        isCompleted: false,
-        isLose: false,
-        isWin: false,
-        isFirstTask: false,
-        isLastTask: true,
+    const result = selectTasksWithStatus(state);
+    expect(result).toEqual([
+      {
+        task: state.tasks[0],
+        status: {
+          isCompleted: true,
+          isLose: false,
+          isWin: true,
+          isFirstTask: true,
+          isLastTask: false,
+        },
       },
-    });
+      {
+        task: state.tasks[1],
+        status: {
+          isCompleted: false,
+          isLose: false,
+          isWin: false,
+          isFirstTask: false,
+          isLastTask: true,
+        },
+      },
+    ]);
   });
 });

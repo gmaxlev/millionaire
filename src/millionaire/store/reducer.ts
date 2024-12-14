@@ -1,4 +1,4 @@
-import selectStatus from './selectors/selectStatus';
+import selectTasksWithStatus from './selectors/selectTasksWithStatus';
 import { MillionaireAction, MillionaireState } from './types';
 
 export function createInitialState(): MillionaireState {
@@ -6,6 +6,7 @@ export function createInitialState(): MillionaireState {
     currentTaskIndex: 0,
     currency: null,
     tasks: null,
+    isStart: false,
   };
 }
 
@@ -53,23 +54,30 @@ export function millionaireReducer(
 
       newTasks[state.currentTaskIndex] = newTask;
 
-      let newState = {
+      return {
         ...state,
         tasks: newTasks,
       };
+    }
+    case 'SWITCH_TASK': {
+      const tasksWithStatus = selectTasksWithStatus(state);
 
-      const { isWin } = selectStatus(newState);
-
-      if (isWin) {
-        const nextTaskIndex = Math.min(state.currentTaskIndex + 1, tasks.length - 1);
-
-        newState = {
-          ...newState,
-          currentTaskIndex: nextTaskIndex,
-        };
+      if (!tasksWithStatus) {
+        throw new Error('Task not initialized');
       }
 
-      return newState;
+      const notCompletedIndex = tasksWithStatus.findIndex(
+        ({ status }) => !status.isCompleted || status.isLose,
+      );
+
+      const minIndex = notCompletedIndex === -1 ? tasksWithStatus.length - 1 : notCompletedIndex;
+
+      const newTaskIndex = Math.min(minIndex, action.payload);
+
+      return {
+        ...state,
+        currentTaskIndex: newTaskIndex,
+      };
     }
     case 'RESTART': {
       const { tasks } = state;
@@ -88,7 +96,15 @@ export function millionaireReducer(
 
       return {
         ...state,
+        currentTaskIndex: 0,
         tasks: newTasks,
+        isStart: true,
+      };
+    }
+    case 'START': {
+      return {
+        ...state,
+        isStart: true,
       };
     }
     default:

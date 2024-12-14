@@ -1,0 +1,23 @@
+.button {
+    background-color: var(--color-orange-100);
+    color: var(--color-white-100);
+    line-height: 116%;
+    font-size: 0.875rem;
+    font-weight: 600;
+    border-radius: 0.75rem;
+    padding: 0.993rem;
+    min-width: 296px;
+    text-align: center;
+
+    &:not(:disabled):hover {
+        background-color: var(--color-orange-80);
+    }
+    &:not(:disabled):active {
+        background-color: var(--color-orange-120);
+    }
+
+    @include screen(md) {
+        font-size: 1.25rem;
+        padding: 1.275rem;
+    }
+}

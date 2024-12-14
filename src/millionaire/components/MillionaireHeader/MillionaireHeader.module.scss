@@ -1,0 +1,24 @@
+.header {
+    height: 3.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    & > button {
+        width: 2.188rem;
+        height: 2.188rem;
+
+        &:disabled {
+            cursor: default;
+        }
+
+        & > svg {
+            width: 1.5rem;
+            height: 1.5rem;
+        }
+    }
+
+    @include screen(lg) {
+        display: none;
+    }
+}

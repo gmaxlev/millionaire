@@ -1,19 +1,18 @@
 import { MillionaireState } from '../types';
-import selectTasks from './selectTasks';
-import selectTaskStatus from './selectTaskStatus';
+import selectTasksWithStatus from './selectTasksWithStatus';
 
 export default function selectReward(state: MillionaireState) {
-  const tasks = selectTasks(state);
+  const tasksWithStatus = selectTasksWithStatus(state);
 
-  if (!tasks) {
+  if (!tasksWithStatus) {
     return 0;
   }
 
-  const found = [...tasks].reverse().find((task, index, arr) => {
-    const { isWin } = selectTaskStatus(state, arr.length - index - 1);
+  const found = [...tasksWithStatus].reverse().find((task) => {
+    const { isWin } = task.status;
 
     return isWin;
   });
 
-  return found ? found.reward.value : 0;
+  return found ? found.task.reward.value : 0;
 }

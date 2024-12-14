@@ -1,0 +1,13 @@
+.options {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    row-gap: 0.5rem;
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+
+    @include screen(md) {
+        grid-template-columns: repeat(2, 1fr);
+        row-gap: 2rem;
+    }
+}

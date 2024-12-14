@@ -1,0 +1,117 @@
+.option {
+  position: relative;
+  padding: 0 1.063rem;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background-color: var(--color-black-40);
+    transform: translateY(-50%);
+  }
+
+  &:has(.button:not(.button_selected):not(.button_correct):not(.button_wrong):not(button[disabled]):hover)::before,
+  &:has(.button:not(.button_selected):not(.button_correct):not(.button_wrong):focus)::before {
+    background-color: var(--color-orange-100) !important;
+  }
+
+  &:has(.button_selected)::before {
+    background-color: var(--color-orange-100);
+  }
+
+  &:has(.button_wrong)::before {
+    background-color: var(--color-red-100);
+  }
+
+  &:has(.button_correct)::before {
+    background-color: var(--color-green-100);
+  }
+}
+
+.button {
+  display: block;
+  border: 0;
+  position: relative;
+  padding: 1px;
+  width: 100%;
+  text-align: left;
+  font-size: 0.875rem;
+  background-color: var(--color-black-40);
+  cursor: pointer;
+  outline: none;
+  height: 100%;
+
+  @include screen(md) {
+    font-size: 1.25rem;
+  }
+
+  & > span {
+    padding: 1.094rem 2rem;
+    display: block;
+    background-color: var(--color-white-100);
+    height: 100%;
+    display: flex;
+    align-items: center;
+
+    & > span:first-of-type {
+      margin-right: 0.5rem;
+    }
+
+    & > span:first-of-type {
+      color: var(--color-orange-100);
+      font-weight: 500;
+    }
+
+    @include screen(md) {
+      padding: 1.359rem 2rem;
+    }
+  }
+
+  &:not(.button_selected):not(.button_correct):not(.button_wrong):not([disabled]):hover,
+  &:not(.button_selected):not(.button_correct):not(.button_wrong):focus {
+    background-color: var(--color-orange-100);
+  }
+
+  &:disabled {
+    opacity: 1;
+    color: inherit;
+    cursor: default;
+  }
+
+  /* Selected */
+
+  &_selected {
+    background-color: var(--color-orange-100);
+  }
+
+  &_selected > span {
+    background-color: var(--color-orange-5);
+  }
+
+  /* Wrong */
+
+  &_wrong {
+    background-color: var(--color-red-100);
+  }
+
+  &_wrong > span {
+    background-color: var(--color-red-5);
+  }
+
+  /* Correct */
+
+  &_correct {
+    background-color: var(--color-green-100);
+  }
+
+  &_correct > span {
+    background-color: var(--color-green-5);
+  }
+}
+
+.button,  .button > span {
+  clip-path: var(--shape-button);
+}

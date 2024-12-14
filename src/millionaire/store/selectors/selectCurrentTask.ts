@@ -1,11 +1,12 @@
 import { MillionaireState } from '../types';
+import selectTasksWithStatus from './selectTasksWithStatus';
 
 export default function selectCurrentTask(state: MillionaireState) {
-  const task = state.tasks?.[state.currentTaskIndex];
+  const tasksWithStatus = selectTasksWithStatus(state);
 
-  if (!task) {
+  if (!tasksWithStatus) {
     return null;
   }
 
-  return task;
+  return tasksWithStatus[state.currentTaskIndex];
 }

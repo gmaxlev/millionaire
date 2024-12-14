@@ -2,38 +2,35 @@
 
 import useFetchTasks from '@/millionaire/hooks/useFetchTasks';
 import useMillionaireGameReducer from '@/millionaire/hooks/useMillionaireGameReducer';
-import { useEffect, useMemo } from 'react';
-import { MillionaireOption } from '@/millionaire/types';
+import { useCallback, useEffect, useMemo } from 'react';
+import { MillionaireOption, MillionaireTask } from '@/millionaire/types';
 import selectCurrentTask from '@/millionaire/store/selectors/selectCurrentTask';
-import selectOptions from '@/millionaire/store/selectors/selectOptions';
-import selectTasks from '@/millionaire/store/selectors/selectTasks';
-import selectCurrentTaskIndex from '@/millionaire/store/selectors/selectCurrentTaskIndex';
 import selectReward from '@/millionaire/store/selectors/selectReward';
-import selectCurrency from '@/millionaire/store/selectors/selectCurrency';
-import selectStatus from '@/millionaire/store/selectors/selectStatus';
+import selectTasksWithStatus from '../store/selectors/selectTasksWithStatus';
+import selectGameOver from '../store/selectors/selectGameOver';
 
 export default function useMillionaireState() {
   const config = useFetchTasks();
 
   const [state, dispatch] = useMillionaireGameReducer();
 
+  const { isStart } = state;
+
+  const onStart = useCallback(() => {
+    dispatch({ type: 'START' });
+  }, [dispatch]);
+
   const currenctTask = useMemo(() => selectCurrentTask(state), [state]);
 
-  const options = useMemo(() => selectOptions(state), [state]);
+  const tasks = useMemo(() => selectTasksWithStatus(state), [state]);
 
-  const tasks = useMemo(() => selectTasks(state), [state]);
-
-  const currenctTaskIndex = useMemo(() => selectCurrentTaskIndex(state), [state]);
+  const currenctTaskIndex = useMemo(() => state.currentTaskIndex, [state]);
 
   const reward = useMemo(() => selectReward(state), [state]);
 
-  const currency = useMemo(() => selectCurrency(state), [state]);
+  const currency = useMemo(() => state.currency, [state]);
 
-  const {
-    isCompleted, isLose, isLastTask,
-  } = useMemo(() => selectStatus(state), [state]);
-
-  const isDisabled = isCompleted;
+  const isGameOver = useMemo(() => selectGameOver(state), [state]);
 
   const onAnswer = (optionId: MillionaireOption['id']) => {
     dispatch({
@@ -44,6 +41,14 @@ export default function useMillionaireState() {
     });
   };
 
+  const onSwitchTask = useCallback((taskId: MillionaireTask['id']) => {
+    dispatch({ type: 'SWITCH_TASK', payload: taskId });
+  }, [dispatch]);
+
+  const onRestart = useCallback(() => {
+    dispatch({ type: 'RESTART' });
+  }, [dispatch]);
+
   useEffect(() => {
     if (!config) {
       return;
@@ -53,15 +58,15 @@ export default function useMillionaireState() {
 
   return {
     currenctTask,
-    options,
     tasks,
     currenctTaskIndex,
     reward,
     currency,
-    isCompleted,
-    isLose,
-    isLastTask,
-    isDisabled,
+    isGameOver,
+    isStart,
+    onStart,
+    onSwitchTask,
     onAnswer,
+    onRestart,
   };
 }

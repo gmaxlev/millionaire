@@ -1,0 +1,88 @@
+@keyframes fadeIn {
+    from {
+        transform: translateY(10px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+       transform: translateY(0);
+       opacity: 1;
+    }
+
+    to {
+       transform: translateY(-10px);
+       opacity: 0;
+    }
+}
+
+@include screen(lg) {
+    @keyframes fadeIn {
+        from {
+            transform: translateX(10px);
+            opacity: 0;
+        }
+        
+        to {
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+
+    @keyframes fadeOut {
+        from {
+            transform: translateX(0);
+            opacity: 1;
+        }
+        to {
+            transform: translateX(-10px);
+            opacity: 0;
+        }
+    }
+}
+
+.task {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-bottom: 1.5rem;
+    min-height: calc(100% - 56px);
+    animation:  fadeIn 0.5s ease-in-out;
+    padding-right: 0;
+    padding-left: 0;
+
+    @include screen(lg) {
+        padding-right: calc(376px + 100px - var(--container-padding));
+        min-height: 100%;
+        padding-top: 140px;
+        padding-bottom: 120px;
+        padding-left: var(--container-padding);
+    }
+}
+
+.task_completed {
+    animation: fadeOut 0.5s ease-in-out;
+    animation-delay: 0.5s;
+    animation-fill-mode: forwards;
+}
+
+.question {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-right: var(--container-padding);
+    padding-left: var(--container-padding);
+
+    @include screen(lg) {
+        flex-grow: initial;
+        padding-right: 0;
+        padding-left: 0;
+    }
+}

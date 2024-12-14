@@ -1,22 +1,6 @@
-import { MillionaireState } from '../types';
-import selectTasks from './selectTasks';
+import { MillionaireTaskState } from './types';
 
-export default function selectTaskStatus(state: MillionaireState, taskIndex: number) {
-  const tasks = selectTasks(state);
-
-  if (!tasks) {
-    return {
-      isWin: false,
-      isLose: false,
-      isCompleted: false,
-      isLastTask: false,
-    };
-  }
-
-  const task = tasks[taskIndex];
-
-  const isLastTask = taskIndex === tasks.length - 1;
-
+export default function calculateTaskStatus(task: MillionaireTaskState) {
   const correctOptions = task.options.filter((option) => option.isCorrect);
 
   const incorrectOptions = task.options.filter((option) => !option.isCorrect);
@@ -37,6 +21,5 @@ export default function selectTaskStatus(state: MillionaireState, taskIndex: num
     isWin,
     isLose,
     isCompleted,
-    isLastTask,
   };
 }
